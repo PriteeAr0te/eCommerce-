@@ -49,7 +49,7 @@ const Hero = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="w-[97vw] min-h-96 pt-5 bg-slate-200 m-3">
+      <div className="w-[96vw] min-h-96 pt-5 bg-slate-200 m-3">
         <div>
           <Slider
             autoplay

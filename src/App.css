@@ -1,4 +1,11 @@
-.slick-arrow.slick-prev,
+.slick-arrow.slick-prev {
+    width:47px;
+    height:104px;
+    background-color:  rgb(96 165 250);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
 .slick-arrow.slick-next  {
     width:47px;
     height:104px;
@@ -15,13 +22,14 @@
     background-color: rgb(59 130 246);
 }
 .slick-prev {
-    margin-left: 8px;
+    margin-left: 25px;
+    z-index: 1;
     left:0;
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
 }
 .slick-next {
-    margin-right: 8px;
+    margin-right: 25px;
     right:0;
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;

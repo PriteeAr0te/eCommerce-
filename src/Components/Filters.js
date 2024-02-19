@@ -8,11 +8,11 @@ import Grocery from "./images/Grocery.webp";
 
 const Filters = ({ handleFilterClick }) => {
   return (
-    <div className="flex justify-center pt-[64px]">
+    <div className="flex justify-center">
       <div className="w-[80vw] max-h-28 bg-blue-100 m-0.5 p-5 flex items-center justify-around">
         <div
-          className="flex flex-col hover:cursor-pointer"
-          onClick={() => handleFilterClick("groceries")}
+          className="flex flex-col"
+          // onClick={() => handleFilterClick("groceries")}
         >
           <img
             className="h-14 w-auto object-contain"
@@ -22,10 +22,7 @@ const Filters = ({ handleFilterClick }) => {
           />
           <span className="mt-auto bottom-0 text-sm">Grocery</span>
         </div>
-        <div
-          className="flex flex-col hover:cursor-pointer"
-          onClick={() => handleFilterClick("skincare")}
-        >
+        <div className="flex flex-col ">
           <img
             className="h-14 w-auto object-contain"
             src={Skincare}
@@ -34,10 +31,7 @@ const Filters = ({ handleFilterClick }) => {
           />
           <span className="mt-auto bottom-0 text-sm">Skincare</span>
         </div>
-        <div
-          className="flex flex-col hover:cursor-pointer"
-          onClick={() => handleFilterClick("smartphones")}
-        >
+        <div className="flex flex-col ">
           <img
             className="h-14 w-auto object-contain"
             src={Smartphones}
@@ -46,10 +40,7 @@ const Filters = ({ handleFilterClick }) => {
           />
           <span className="mt-auto bottom-0 text-sm">Smartphones</span>
         </div>
-        <div
-          className="flex flex-col hover:cursor-pointer"
-          onClick={() => handleFilterClick("fragrances")}
-        >
+        <div className="flex flex-col ">
           <img
             className="h-14 w-auto object-contain"
             src={Fragrance}
@@ -58,10 +49,7 @@ const Filters = ({ handleFilterClick }) => {
           />
           <span className="mt-auto bottom-0 text-sm">Fragrances</span>
         </div>
-        <div
-          className="flex flex-col hover:cursor-pointer"
-          onClick={() => handleFilterClick("laptops")}
-        >
+        <div className="flex flex-col ">
           <img
             className="h-14 w-auto object-contain"
             src={Laptops}
@@ -70,10 +58,7 @@ const Filters = ({ handleFilterClick }) => {
           />
           <span className="mt-auto bottom-0 text-sm">Laptops</span>
         </div>
-        <div
-          className="flex flex-col hover:cursor-pointer"
-          onClick={() => handleFilterClick("home-decoration")}
-        >
+        <div className="flex flex-col ">
           <img
             className="h-14 w-auto object-contain"
             src={homeDecor}

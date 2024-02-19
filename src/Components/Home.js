@@ -83,7 +83,7 @@ const Home = ({ filters, handleFilterClick }) => {
   };
 
   return (
-    <div className="flex mt-0.5 w-[96vw]">
+    <div className="flex mt-0.5 w-[96vw] pt-[60px]">
       <div className="col-md-2 bg-blue-100 h-screen mr-2 p-4">
         <h2 className="flex justify-center mt-2 font-semibold text-2xl">
           <i className="fa-solid fa-arrow-up-wide-short text-lg my-2 mx-1.5"></i>

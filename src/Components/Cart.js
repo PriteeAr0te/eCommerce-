@@ -36,13 +36,13 @@ const Cart = () => {
 
   return (
     <>
-      <div className="flex justify-center w-full h-fit bg-blue-100 mb-10">
+      <div className="flex justify-center w-full h-fit bg-blue-100 mb-10 pt-[64px]">
         <div className="mt-8 mx-5">
           {cart.length > 0 ? (
             <>
               <div className="flex flex-col justify-center">
                 <h2 className="flex justify-center text-3xl text-slate-900">
-                  Your Cart Details
+                  Cart Details
                 </h2>
                 <div className="flex my-4 mt-4 h-fit justify-center">
                   <span className="bg-blue-600 text-slate-100 py-0.5 px-2 mx-2 rounded-md">

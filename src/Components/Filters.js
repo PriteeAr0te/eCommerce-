@@ -8,9 +8,9 @@ import Grocery from "./images/Grocery.webp";
 
 const Filters = ({ handleFilterClick }) => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center pt-[64px]">
       <div className="w-[80vw] max-h-28 bg-blue-100 m-0.5 p-5 flex items-center justify-around">
-        <a
+        <div
           className="flex flex-col hover:cursor-pointer"
           onClick={() => handleFilterClick("groceries")}
         >
@@ -21,8 +21,8 @@ const Filters = ({ handleFilterClick }) => {
             href="/grocery"
           />
           <span className="mt-auto bottom-0 text-sm">Grocery</span>
-        </a>
-        <a
+        </div>
+        <div
           className="flex flex-col hover:cursor-pointer"
           onClick={() => handleFilterClick("skincare")}
         >
@@ -33,8 +33,8 @@ const Filters = ({ handleFilterClick }) => {
             href="/skincare"
           />
           <span className="mt-auto bottom-0 text-sm">Skincare</span>
-        </a>
-        <a
+        </div>
+        <div
           className="flex flex-col hover:cursor-pointer"
           onClick={() => handleFilterClick("smartphones")}
         >
@@ -45,8 +45,8 @@ const Filters = ({ handleFilterClick }) => {
             href="/smartphones"
           />
           <span className="mt-auto bottom-0 text-sm">Smartphones</span>
-        </a>
-        <a
+        </div>
+        <div
           className="flex flex-col hover:cursor-pointer"
           onClick={() => handleFilterClick("fragrances")}
         >
@@ -57,8 +57,8 @@ const Filters = ({ handleFilterClick }) => {
             href="/fragrance"
           />
           <span className="mt-auto bottom-0 text-sm">Fragrances</span>
-        </a>
-        <a
+        </div>
+        <div
           className="flex flex-col hover:cursor-pointer"
           onClick={() => handleFilterClick("laptops")}
         >
@@ -69,8 +69,8 @@ const Filters = ({ handleFilterClick }) => {
             href="/laptops"
           />
           <span className="mt-auto bottom-0 text-sm">Laptops</span>
-        </a>
-        <a
+        </div>
+        <div
           className="flex flex-col hover:cursor-pointer"
           onClick={() => handleFilterClick("home-decoration")}
         >
@@ -81,7 +81,7 @@ const Filters = ({ handleFilterClick }) => {
             href=""
           />
           <span className="mt-auto bottom-0 text-sm">Home Decor</span>
-        </a>
+        </div>
       </div>
     </div>
   );

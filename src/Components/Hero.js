@@ -38,9 +38,9 @@ const Hero = () => {
   };
 
   return (
-    <>
+    <div className="mt-1">
       <SliderBar />
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center pt-[64px]">
         <form className="flex justify-center w-full" onSubmit={handleSubmit}>
           <div className="text-center w-[60vw] h-[250px] mt-5 mb-5">
             <h2 className="text-3xl my-4 mb-3">Sign in to Your Account</h2>
@@ -77,7 +77,7 @@ const Hero = () => {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

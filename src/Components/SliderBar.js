@@ -49,7 +49,7 @@ const SliderBar = () => {
 
   return (
     <div>
-      <div className="w-[96vw] min-h-[400px] pt-5 bg-slate-200 mx-3 mt-0.5">
+      <div className="w-[96vw] min-h-[450px] bg-slate-200 mx-3 mt-1 pt-[100px]">
         <div>
           <Slider
             autoplay
@@ -65,7 +65,7 @@ const SliderBar = () => {
                   <img
                     src={images[i]}
                     alt="Slider"
-                    className="w-auto h-[100px] object-contain"
+                    className="w-auto h-[100px] object-contain pt-[64px]"
                   />
                 </div>
               );

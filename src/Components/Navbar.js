@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/login");
+    navigate("/");
   };
   const {
     addedProducts: { cart },
@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <>
       <div>
-        <nav className="w-full h-15 flex justify-between items-center px-auto bg-blue-500">
+        <nav className="w-full h-15 flex justify-between fixed top-0 z-50 items-center px-auto bg-blue-500">
           <div>
             <Link to="/">
               <img className="" src={shopLogo} alt="shopLogo" />

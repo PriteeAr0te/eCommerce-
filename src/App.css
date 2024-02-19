@@ -44,7 +44,7 @@
 
 .custom-indicator li {
     width: 50px;
-    height: 50px;
+    height: 30px;
     border-radius: 10px;
     filter: grayscale(100%)
 }
@@ -63,8 +63,8 @@
     content: attr(data);
     position: relative;
     right: 4px;
-    top:-15px;
-    color:red;
+    top:-13px;
+    color:rgb(245 158 11);
     /* border:2px solid transparent;
     border-radius:100% */
 }

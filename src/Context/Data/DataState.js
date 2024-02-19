@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useReducer, useState } from "react";
 import DataContext from "./DataContext";
+import { InitialState, Reducer } from "../../Reducer";
+import RatingFilter from "../../Components/RatingFilter";
 
 const DataState = (props) => {
   const BASE_URL = "https://dummyjson.com";
@@ -18,19 +20,31 @@ const DataState = (props) => {
     }
   };
 
-  // useEffect(() => {
-  //   // eslint-disable-next-line
-  //   getData();
-  // }, []);
-  // return { data, getData };
+  const [addedProducts, dispatch] = useReducer(Reducer, InitialState);
+  const [price_filter, dispatch_filter] = useReducer(RatingFilter, {
+    sort: null,
+    rate: null,
+    price_range: [0, 2000],
+  });
 
   return (
     <div>
-      <DataContext.Provider value={{ data, getData }}>
+      <DataContext.Provider
+        value={{
+          data,
+          getData,
+          addedProducts,
+          dispatch,
+          price_filter,
+          dispatch_filter,
+        }}
+      >
         {props.children}
       </DataContext.Provider>
     </div>
   );
 };
+
+export const Use_my_state = () => useContext(DataContext);
 
 export default DataState;

@@ -12,6 +12,10 @@ const DataState = (props) => {
     try {
       const response = await fetch(`${BASE_URL}/products`, {
         method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
       });
       const json = await response.json();
       setData(json);

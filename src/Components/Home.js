@@ -5,8 +5,20 @@ import Filters from "./Filters";
 import { Use_my_state } from "../Context/Data/DataState";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
+import { useNavigate } from "react-router-dom";
 
 const Home = ({ filters, handleFilterClick }) => {
+  let navigate = useNavigate();
+  useEffect(() => {
+    const checkAuthentication = () => {
+      if (!localStorage.getItem("token")) {
+        navigate("/");
+      }
+    };
+
+    checkAuthentication();
+  }, [navigate]);
+
   const context = useContext(DataContext);
   const { data, getData } = context;
   const [productsItem, setProductsItem] = useState([]);

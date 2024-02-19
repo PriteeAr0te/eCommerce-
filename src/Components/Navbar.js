@@ -2,11 +2,17 @@ import React from "react";
 import shopLogo from "./shopLogo.png";
 import SearchBar from "./SearchBar";
 import "../App.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoHome } from "react-icons/io5";
 import { Use_my_state } from "../Context/Data/DataState";
 
 const Navbar = () => {
+  let navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
   const {
     addedProducts: { cart },
   } = Use_my_state();
@@ -33,6 +39,17 @@ const Navbar = () => {
               ></i>
               <span className="text-slate-100 text-semibold text-lg">Cart</span>
             </Link>
+            {localStorage.getItem("token") ? (
+              <button
+                className="border-2 border-amber-500 text-slate-50 font-semibold px-2 py-0.5 rounded-lg mr-3 transform transition-transform hover:scale-110"
+                onClick={handleLogout}
+              >
+                {" "}
+                Logout{" "}
+              </button>
+            ) : (
+              <></>
+            )}
           </div>
         </nav>
       </div>

@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Use_my_state } from "../Context/Data/DataState";
 import Ratings from "./Ratings";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  let navigate = useNavigate();
   const {
     addedProducts: { cart },
     dispatch,
   } = Use_my_state();
+
+  useEffect(() => {
+    const checkAuthentication = () => {
+      if (!localStorage.getItem("token")) {
+        navigate("/");
+      }
+    };
+
+    checkAuthentication();
+  }, [navigate]);
 
   let { totalItems, totalPrice } = cart.reduce(
     (acc, cur) => {

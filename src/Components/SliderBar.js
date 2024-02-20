@@ -78,7 +78,7 @@ const SliderBar = () => {
                   <img
                     src={item}
                     alt="Slider"
-                    className="w-[100%] h-[40vh] object-contain"
+                    className="w-[100%] h-[38vh] object-contain"
                   />
                 )}
               </div>

@@ -4,7 +4,7 @@ import Ratings from "./Ratings";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const Cart = () => {
+const Cart = ({ setProgress }) => {
   let navigate = useNavigate();
   const {
     addedProducts: { cart },
@@ -13,8 +13,11 @@ const Cart = () => {
 
   useEffect(() => {
     const checkAuthentication = () => {
+      setProgress(5);
       if (!localStorage.getItem("token")) {
+        setProgress(70);
         navigate("/");
+        setProgress(100);
       }
     };
 
@@ -90,10 +93,12 @@ const Cart = () => {
                           <button
                             className=" mt-3 flex justify-center border-1 border-slate-900 p-0.5 hover:bg-green-600 hover:text-slate-100 rounded-md px-1"
                             onClick={() => {
+                              setProgress(0);
                               dispatch({
                                 type: "REMOVE_FROM_CART",
                                 payload: i,
                               });
+                              setProgress(100);
                             }}
                           >
                             <i class="fa-regular fa-trash-can p-0.5 mr-1"></i>{" "}

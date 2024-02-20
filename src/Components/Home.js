@@ -7,12 +7,15 @@ import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import { useNavigate } from "react-router-dom";
 
-const Home = ({ filters, handleFilterClick }) => {
+const Home = ({ filters, handleFilterClick, setProgress }) => {
   let navigate = useNavigate();
   useEffect(() => {
     const checkAuthentication = () => {
+      setProgress(0);
       if (!localStorage.getItem("token")) {
+        setProgress(70);
         navigate("/");
+        setProgress(100);
       }
     };
 
@@ -22,6 +25,7 @@ const Home = ({ filters, handleFilterClick }) => {
   const context = useContext(DataContext);
   const { data, getData } = context;
   const [productsItem, setProductsItem] = useState([]);
+  const [addedToCart, setAddedToCart] = useState({});
 
   const {
     addedProducts: { searchkey },
@@ -34,6 +38,7 @@ const Home = ({ filters, handleFilterClick }) => {
   } = Use_my_state();
 
   useEffect(() => {
+    setProgress(10);
     const fetchData = async () => {
       try {
         await getData();
@@ -42,6 +47,7 @@ const Home = ({ filters, handleFilterClick }) => {
       }
     };
     fetchData();
+    setProgress(100);
   }, []);
 
   const setProductsItemMemorized = useCallback(setProductsItem, []);
@@ -82,6 +88,16 @@ const Home = ({ filters, handleFilterClick }) => {
     });
   };
 
+  const handleAddToCart = (item) => {
+    setAddedToCart({ ...addedToCart, [item.id]: true });
+    setProgress(40);
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: item,
+    });
+    setProgress(100);
+  };
+
   return (
     <div className="flex mt-0.5 w-[96vw] pt-[60px]">
       <div className="col-md-2 bg-blue-100 h-screen mr-2 p-4">
@@ -97,10 +113,12 @@ const Home = ({ filters, handleFilterClick }) => {
                 <Ratings
                   rating={rate}
                   onClick={(i) => {
+                    setProgress(50);
                     dispatch_filter({
                       type: "Add_Rate",
                       payload: i + 1,
                     });
+                    setProgress(100);
                   }}
                 />
               </span>
@@ -124,9 +142,11 @@ const Home = ({ filters, handleFilterClick }) => {
         <div className="flex justify-center mt-3">
           <button
             onClick={() => {
+              setProgress(5);
               dispatch_filter({
                 type: "Clear_Filter",
               });
+              setProgress(100);
             }}
             className="bg-red-500 p-2 text-sm py-1.5 rounded-md text-slate-100 transform transition-transform hover:scale-110"
           >
@@ -191,15 +211,14 @@ const Home = ({ filters, handleFilterClick }) => {
                       </p>
                       <div className="flex flex-row px-2 mt-4 justify-center">
                         <button
-                          className="bg-amber-500 px-3 text-sm py-1.5 rounded-md text-slate-100 transform transition-transform hover:scale-95"
-                          onClick={() => {
-                            dispatch({
-                              type: "ADD_TO_CART",
-                              payload: item,
-                            });
-                          }}
+                          className={`${
+                            addedToCart[item.id]
+                              ? "bg-blue-600 text-white"
+                              : "bg-amber-500 text-slate-100"
+                          } px-3 text-sm py-1.5 rounded-md transform transition-transform hover:scale-95`}
+                          onClick={() => handleAddToCart(item)}
                         >
-                          Add To Cart{" "}
+                          {addedToCart[item.id] ? "Added" : "Add To Cart"}
                         </button>
                       </div>
                     </div>

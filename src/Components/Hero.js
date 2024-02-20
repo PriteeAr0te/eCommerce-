@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SliderBar from "./SliderBar";
 import { useNavigate } from "react-router-dom";
 
-const Hero = () => {
+const Hero = ({ setProgress }) => {
   const BASE_URL = "https://dummyjson.com";
   const [credentials, setCredentials] = useState({
     username: "",
@@ -13,6 +13,7 @@ const Hero = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setProgress(10);
       const response = await fetch(`${BASE_URL}/auth/login`, {
         method: "POST",
         headers: {
@@ -20,11 +21,14 @@ const Hero = () => {
         },
         body: JSON.stringify(credentials),
       });
+      setProgress(40);
       const json = await response.json();
       if (response.ok) {
         localStorage.setItem("token", json.authtoken); // Assuming authtoken is returned upon successful login
         alert("Login Successfully", "success");
+        setProgress(70);
         navigate("/home");
+        setProgress(100);
       } else {
         alert("Invalid Username or Password", "danger");
       }
@@ -40,7 +44,7 @@ const Hero = () => {
   return (
     <div className="mt-1">
       <SliderBar />
-      <div className="flex flex-col justify-center pt-[64px]">
+      <div className="flex flex-col justify-center">
         <form className="flex justify-center w-full" onSubmit={handleSubmit}>
           <div className="text-center w-[60vw] h-[250px] mt-5 mb-5">
             <h2 className="text-3xl my-4 mb-3">Sign in to Your Account</h2>
@@ -70,7 +74,7 @@ const Hero = () => {
             </div>
             <button
               type="submit"
-              className="mt-3 w-[18%] py-2.5 bg-blue-500 rounded-lg hover:bg-blue-400 text-slate-100 text-lg font-medium hover:text-xl"
+              className="mt-3 w-[18%] py-2.5 bg-blue-600 rounded-lg hover:bg-blue-500 text-slate-100 text-lg font-medium hover:text-xl"
             >
               Signin
             </button>

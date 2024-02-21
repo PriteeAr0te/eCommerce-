@@ -100,7 +100,7 @@ const Home = ({ filters, handleFilterClick, setProgress }) => {
 
   return (
     <div className="flex mt-0.5 w-[96vw] pt-[60px]">
-      <div className="col-md-2 bg-blue-100 h-screen mr-2 p-4">
+      <div className="xl:col-md-2 col-md-3 bg-blue-100 h-screen mr-2 p-4">
         <h2 className="flex justify-center mt-2 font-semibold text-2xl">
           <i className="fa-solid fa-arrow-up-wide-short text-lg my-2 mx-1.5"></i>
           Filters
@@ -125,17 +125,19 @@ const Home = ({ filters, handleFilterClick, setProgress }) => {
             </div>
             <div className="my-4">
               <li>Filter By Price</li>
-              <Box sx={{ width: 150, margin: 2 }}>
-                <Slider
-                  getAriaLabel={() => "Temperature range"}
-                  value={price_range}
-                  onChange={handleChange}
-                  valueLabelDisplay="auto"
-                  min={0}
-                  step={50}
-                  max={2000}
-                />
-              </Box>
+              <div className="w-[80%]">
+                <Box sx={{ width: 100, margin: 2 }}>
+                  <Slider
+                    getAriaLabel={() => "Temperature range"}
+                    value={price_range}
+                    onChange={handleChange}
+                    valueLabelDisplay="auto"
+                    min={0}
+                    step={50}
+                    max={2000}
+                  />
+                </Box>
+              </div>
             </div>
           </ul>
         </div>
@@ -155,14 +157,17 @@ const Home = ({ filters, handleFilterClick, setProgress }) => {
         </div>
       </div>
 
-      <div className="col-md-10 ml-2">
+      <div className="xl:col-md-10 col-md-9 ml-2">
         <Filters handleFilterClick={handleFilterClick} />
 
         <div className="flex justify-center">
           <div className="w-full md:h-[510px] h-auto p-4 bg-blue-100 mb-3">
-            <h1 className="font-semibold text-2xl ml-3"> Buy Your Products </h1>
+            <h1 className="font-semibold text-2xl ml-3 md:text-red-600 lg: text-green-600">
+              {" "}
+              Buy Your Products{" "}
+            </h1>
             <div className="flex justify-center">
-              <div className="md:grid md:grid-cols-4 flex flex-col gap-4 mt-4">
+              <div className="md:grid md:grid-cols-2 xl:grid-cols-4 flex flex-col gap-4 mt-4">
                 {filter_products()
                   .filter(
                     (s) =>

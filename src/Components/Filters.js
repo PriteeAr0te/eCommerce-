@@ -9,9 +9,9 @@ import Grocery from "./images/Grocery.webp";
 const Filters = ({ handleFilterClick }) => {
   return (
     <div className="flex justify-center">
-      <div className="w-[80vw] max-h-28 bg-blue-100 m-0.5 p-5 flex items-center justify-around">
+      <div className="w-[80vw] min-h-28 bg-blue-100 m-0.5 p-3 xl:p-5 flex flex-wrap items-center justify-around ">
         <div
-          className="flex flex-col"
+          className="flex flex-col pb-3 px-1"
           // onClick={() => handleFilterClick("groceries")}
         >
           <img
@@ -22,7 +22,7 @@ const Filters = ({ handleFilterClick }) => {
           />
           <span className="mt-auto bottom-0 text-sm">Grocery</span>
         </div>
-        <div className="flex flex-col ">
+        <div className="flex flex-col pb-3 px-1">
           <img
             className="h-14 w-auto object-contain"
             src={Skincare}
@@ -31,7 +31,7 @@ const Filters = ({ handleFilterClick }) => {
           />
           <span className="mt-auto bottom-0 text-sm">Skincare</span>
         </div>
-        <div className="flex flex-col ">
+        <div className="flex flex-col pb-3 px-1">
           <img
             className="h-14 w-auto object-contain"
             src={Smartphones}
@@ -40,7 +40,7 @@ const Filters = ({ handleFilterClick }) => {
           />
           <span className="mt-auto bottom-0 text-sm">Smartphones</span>
         </div>
-        <div className="flex flex-col ">
+        <div className="flex flex-col pb-3 px-1">
           <img
             className="h-14 w-auto object-contain"
             src={Fragrance}
@@ -49,7 +49,7 @@ const Filters = ({ handleFilterClick }) => {
           />
           <span className="mt-auto bottom-0 text-sm">Fragrances</span>
         </div>
-        <div className="flex flex-col ">
+        <div className="flex flex-col pb-3 px-1">
           <img
             className="h-14 w-auto object-contain"
             src={Laptops}
@@ -58,7 +58,7 @@ const Filters = ({ handleFilterClick }) => {
           />
           <span className="mt-auto bottom-0 text-sm">Laptops</span>
         </div>
-        <div className="flex flex-col ">
+        <div className="flex flex-col pb-3 px-1">
           <img
             className="h-14 w-auto object-contain"
             src={homeDecor}
